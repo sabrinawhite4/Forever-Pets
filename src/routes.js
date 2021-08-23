@@ -1,13 +1,17 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Home from "./Views/Home";
-import Welcome from "./Views/Welcome";
-import UserProfile from "./Views/UserProfile";
-import ShelterProfile from "./Views/ShelterProfile";
-import Appointment from "./Views/Appointment";
-import Login from "./Views/Login";
-import Register from "./Views/Register";
-import Logout from "./Views/Logout";
+import Home from "./Components/Home";
+import Welcome from "./Components/Welcome";
+import UserProfile from "./Components/UserProfile";
+import ShelterProfile from "./Components/ShelterProfile";
+import Appointment from "./Components/Appointment";
+import Login from "./Components/Login";
+import Register from "./Components/Register";
+import Logout from "./Components/Logout";
+import ForgetPassword from "./Components/ForgetPassword";
+import ResetPassword from "./Components/ResetPassword";
+import LogoutConfirmation from "./Components/LogoutConfirmation";
+import AppointmentConfirmation from './Components/AppointmentConfirmation';
 
 export default (
   <Switch>
@@ -16,8 +20,12 @@ export default (
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
     <Route path="/user/:id" component={UserProfile} />
-    <Route path="/shelter/:id" component={ShelterProfile} />
+    <Route path="/shelter" component={ShelterProfile} />
     <Route path="/appointment" component={Appointment} />
     <Route path="/logout" component={Logout} />
+    <Route path="/forget-password" component={ForgetPassword} />
+    <Route path="/reset-password" component={ResetPassword} />
+    <Route path="/logout-confirmation" component={LogoutConfirmation} />
+    <Route path="/appointment-confirmation" component={ AppointmentConfirmation}/>
   </Switch>
 );
