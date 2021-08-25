@@ -35,7 +35,7 @@ module.exports = {
   },
   getAvailableAnimals: async (req, res) => {
     console.log("Getting Available Animals");
-    const animals = await getAvailableAnimals();
+    const animals = await getAvailableAnimals().catch(err => {console.log(err)});
     console.log(animals);
     if (animals) {
       res.status(200).send(animals);

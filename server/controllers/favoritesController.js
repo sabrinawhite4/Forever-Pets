@@ -36,14 +36,17 @@ module.exports = {
   addFavorite: async (req, res) => {
     console.log("Adding Favorite");
 
-    const favorites = await addFavorite(req.body).catch((err) => {
-      console.log(err);
-    });
-    if (favorites) {
+    let favorites = await getFavorites(req.body.userId);
+    const isFavorite = favorites.animalsArray.includes(req.body.animalObjId);
+    
+    if (favorites && !isFavorite) {
+      favorites = await addFavorite(req.body).catch((err) => {
+        console.log(err);
+      });
       res.status(200).send(favorites);
     } else {
-      res.status(404).send({
-        error: "Not Found",
+      res.status(201).send({
+        error: "Animal already favorited!",
       });
     }
   },

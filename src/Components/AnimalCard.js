@@ -2,9 +2,10 @@ import React from "react";
 import ActionBar from "./ActionBar";
 
 function InfoCard(props) {
-  const {} = props;
-  //   const animal = animalArray[animalIndex];
-  const animal = {
+  const { animalArray, animalIndex, goToNextFn, goToPreviousFn, handleHeartFn} = props;
+  const animal = animalArray[animalIndex];
+
+  const animalOld = {
     name: "Rover",
     age: "2",
     profile_pic:
@@ -14,7 +15,7 @@ function InfoCard(props) {
     breed: "Beagle",
     shelter: { name: "Sabrina's Home for Underprivileged Animals" },
   };
-  return (
+  return animal ? (
     <div className="info-card">
       <div className="info-card-body">
         <div className="animal-name">
@@ -23,16 +24,16 @@ function InfoCard(props) {
           </h1>
         </div>
         <div>
-          <img src={animal.profile_pic} alt='Animal' />
+          <img src={animal.profile_pic} alt="Animal" />
         </div>
         <span className="animal-info">
           <div>
             <h2>
               <strong>Bio:</strong> {animal.animal_bio}
             </h2>
-            <h2>
-              <strong>Shelter:</strong> {animal.shelter.name}
-            </h2>
+            {/* <h2>
+              <strong>Shelter:</strong> {animal.shelter_id.name}
+            </h2> */}
             <h2>
               <strong>Breed:</strong> {animal.breed}
             </h2>
@@ -41,9 +42,15 @@ function InfoCard(props) {
             </h2>
           </div>
         </span>
-        <ActionBar />
+        <ActionBar
+          goToNextFn={goToNextFn}
+          goToPreviousFn={goToPreviousFn}
+          handleHeartFn={ handleHeartFn}
+        />
       </div>
     </div>
+  ) : (
+    "loading"
   );
 }
 export default InfoCard;

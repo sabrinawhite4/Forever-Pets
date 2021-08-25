@@ -8,12 +8,13 @@ const AnimalSchema = new Schema({
     animal_bio: String,
     breed: String,
     is_adopted: { type: Boolean, default: false},
-    shelter_id: { type: "ObjectId", ref: "Shelters" },
+    shelter_id: { type: Schema.Types.ObjectId, ref: "Shelters" },
     species_id: { type: "ObjectId", ref: "Species" }
 });
 
-AnimalSchema.statics.getNotAdopted = function () {
-    return this.find({ is_adopted: false });
+AnimalSchema.statics.getNotAdopted = async function () {
+    const animal = await this.find({ is_adopted: false }).populate( "shelter_id");
+    return animal;
 };
 
 module.exports = mongoose.models.Animal || mongoose.model("Animal", AnimalSchema);
