@@ -9,6 +9,7 @@ const fc = require('./controllers/favoritesController');
 const auth = require('./controllers/authController.js');
 const species = require('./controllers/speciesController.js');
 const ubc = require('./controllers/userBioController.js');
+const stripe = require('./controllers/stripeController.js');
 
 const app = express();
 
@@ -38,6 +39,7 @@ app.post('/api/auth/register', auth.register);
 app.post('/api/auth/logout', auth.logout);
 // Favorites endpoints
 app.get('/api/favorites/:id', fc.getFavorites);
+app.get('/api/favorites/user/:id', fc.getUserFavorites);
 app.post('/api/favorites/create/:id', fc.createFavorites);
 app.put('/api/favorites', fc.addFavorite);
 app.delete('/api/favorites', fc.removeFavorite);
@@ -50,6 +52,7 @@ app.delete('/api/users/:id', uc.deleteUser);
 app.get('/api/shelters', sc.getShelters);
 app.get('/api/shelters/:id', sc.getShelter);
 app.post('/api/shelters', sc.addShelter);
+app.get('/api/shelters/:id/animals', sc.getShelterAnimals);
 app.put('/api/shelters/:id', sc.updateShelter);
 app.delete('/api/shelters/:id', sc.deleteShelter);
 // Species endpoints
@@ -61,3 +64,5 @@ app.put('/api/species/:id', species.updateSpecies);
 app.post('/api/bio/:id', ubc.createUserBio);
 app.put('/api/bio/:id', ubc.updateUserBio);
 app.delete('/api/bio/:id', ubc.removeUserBio);
+// Stripe endpoints
+app.post('/api/stripe', stripe.createSession);

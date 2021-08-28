@@ -7,6 +7,7 @@ let initialState = {
     first_name: null,
     last_name: null,
     email: null,
+    age: null,
     profile_pic: null,
     phone_number: null,
     is_shelter_employee: false,

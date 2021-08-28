@@ -1,56 +1,119 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Background from "./shared/Background.js";
+import { useSelector, useDispatch } from "react-redux";
+import { requestUserData } from "./../redux/actions/userActions.js";
+import DisplayUserFavorites from "./DisplayUserFavorites.js";
 
 function UserProfile() {
+  const user = useSelector((state) => state.user.user);
+  const loading = useSelector((state) => state.user.loading);
+  const dispatch = useDispatch();
+  const [aboutMe, setAboutMe] = useState("");
+  const [location, setLocation] = useState("");
+  const [idealPet, setIdealPet] = useState("");
+  const [editing, setEditing] = useState(false);
 
-  const [aboutMe, setAboutMe] = useState('');
-  const [location, setLocation] = useState('');
-  const [idealPet, setIdealPet] = useState('');
-  const [favorites, setFavorites] = useState([]);
+  useEffect(() => {
+    setAboutMe(user.profile_bio);
+    setLocation(user.location);
+    setIdealPet(user.ideal_pet);
+
+  }, [user]);
+
+  function saveInfo() {
+    const userData = {
+      profile_bio: aboutMe,
+      location: location,
+      ideal_pet: idealPet,
+    };
+    axios.put(`http://localhost:4000/api/users/${user._id}`, userData);
+    setEditing(!editing);
+    dispatch(requestUserData(user.username));
+  }
 
   return (
     <Background>
-      <div>User Profile Page</div>
-      <form className="login-form">
-        <div className="form-group">
-          <label>About Me:</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Tell us about you!"
-            onChange={(e) => setAboutMe(e.target.value)}
-          />
+      {loading ? (
+        "loading"
+      ) : (
+        <div className="user-profile">
+          <div>User Profile Page</div>
+          {!editing ? (
+            <button onClick={() => setEditing(!editing)}>Edit Profile</button>
+          ) : (
+            <button onClick={saveInfo}>Save Changes</button>
+          )}
+          <form className="login-form">
+            <div className="form-group">
+              <label>User Info:</label>
+              <h2>{user.username}</h2>
+              <h3>
+                {user.first_name} {user.last_name}
+              </h3>
+              <h3>{user.email}</h3>
+              <h3>{user.phone_number}</h3>
+            </div>
+            <div className="form-group">
+              <h2>About Me:</h2>
+              {editing ? (
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Tell us about you!"
+                  onChange={(e) => setAboutMe(e.target.value)}
+                  value={aboutMe}
+                />
+              ) : (
+                <p>{user.profile_bio}</p>
+              )}
+            </div>
+            <div className="form-group">
+              <h2>Where are you from? So we can find animals near you!</h2>
+              {editing ? (
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter your location"
+                  onChange={(e) => setLocation(e.target.value)}
+                  value={location}
+                />
+              ) : (
+                <p>{user.location}</p>
+              )}
+            </div>
+            <div className="form-group">
+              <h2>Your Ideal Pet:</h2>
+              {editing ? (
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Password"
+                  onChange={(e) => setIdealPet(e.target.value)}
+                  value={idealPet}
+                />
+              ) : (
+                <p>{user.ideal_pet}</p>
+              )}
+            </div>
+            <div className="form-group">
+              <h2> Favorites Display</h2>
+              <p>{user.user_favorites}</p>
+              </div>
+              <DisplayUserFavorites
+                user = {user}
+              />
+            <button className="btn btn-success btn-lg" type="submit">
+              Change Password
+            </button>
+            <button className="btn btn-success btn-lg" type="submit">
+              Log out
+            </button>
+          </form>
         </div>
-        <div className="form-group">
-          <label>Where are you from?</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter your location"
-            onChange={(e) => setLocation(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label>Your Ideal Pet:</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Password"
-            onChange={(e) => setIdealPet(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <h2> Favorites Display</h2>
-        </div>
-        <button className="btn btn-success btn-lg" type="submit">
-          Change Password
-        </button>
-        <button className="btn btn-success btn-lg" type="submit">
-          Log out
-        </button>
-      </form>
+      )}
     </Background>
-  ); 
+  );
 }
 
 export default UserProfile;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AnimalCard from "./AnimalCard";
 import { useSelector, useDispatch } from "react-redux";
-import { requestUserData } from "./../redux/actions/userActions.js";
+
 import { requestAvailableAnimals } from "./../redux/actions/animalActions.js";
 
 export default function Home() {
@@ -13,7 +13,6 @@ export default function Home() {
   const [animalIndex, setAnimalIndex] = useState(0);
 
   useEffect(() => {
-    dispatch(requestUserData("sabbyboop21"));
     dispatch(requestAvailableAnimals());
   }, [dispatch]);
 

@@ -1,16 +1,20 @@
-import React from 'react';
+import React from "react";
+import AnimalDisplay from "./AnimalDisplay";
 
 function ShelterAnimalsDisplay(props) {
-    const { animalsArray } = props;
-    const animalList = animalsArray.map((animal) => {
-        return (
-            <li key={animal.id}>
-                {animal.name}
-            </li>
-        );
-    })
+  const { animalsArray, getAnimals } = props;
+  const animalList = animalsArray.map((animal) => {
+    return <AnimalDisplay animal={animal} getAnimals={getAnimals} />;
+  });
 
-    return animalList
+  return (
+    <div>
+      <ul>{animalList}</ul>
+    </div>
+  );
 }
 
 export default ShelterAnimalsDisplay;
+
+// Add a form to create new animals
+

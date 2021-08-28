@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { requestUserData } from "./../redux/actions/userActions.js";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Background from "./shared/Background.js";
 import axios from "axios";
 import "./Login.scss";
@@ -8,6 +10,7 @@ function Login() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
   let history = useHistory();
 
   useEffect(() => {
@@ -17,8 +20,9 @@ function Login() {
   async function loginUser(e) {
     if (e) e.preventDefault();
     try {
-      const res = await axios.post("/auth/login", { username, password });
-      if (res.data.loggedIn) history.push("/");
+      const res = await axios.post("http://localhost:4000/api/auth/login", { username, password });
+      console.log(res.data)
+      if (res.status === 200) {dispatch(requestUserData(res.data.username)); history.push("/") };
     } catch (e) {
       alert("Login failed. Please try again.");
     }
@@ -51,9 +55,9 @@ function Login() {
             Log in
           </button>
         </form>
-        <a href='/#/'>Forget password?</a>
+        <a href='/'>Forget password?</a>
         <br></br>
-        <a href='/#/register'>Register for an Account</a>
+        <a href='/register'>Register for an Account</a>
       </Background>
     ); 
   }

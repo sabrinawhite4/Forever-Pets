@@ -5,6 +5,9 @@ const {
   updateShelter,
   deleteShelter,
 } = require("../database/shelterDb");
+const {
+  getShelterAnimals,
+} = require("../database/animalDb");
 
 module.exports = {
   getShelter: async (req, res) => {
@@ -27,6 +30,20 @@ module.exports = {
     console.log(shelters);
     if (shelters) {
       res.status(200).send(shelters);
+    } else {
+      res.status(404).send({
+        error: "Not Found",
+      });
+    }
+  },
+  getShelterAnimals: async (req, res) => {
+    console.log("Getting Shelter Animals");
+    const id = req.params.id;
+
+    const shelterAnimals = await getShelterAnimals(id);
+    console.log(shelterAnimals);
+    if (shelterAnimals) {
+      res.status(200).send(shelterAnimals);
     } else {
       res.status(404).send({
         error: "Not Found",

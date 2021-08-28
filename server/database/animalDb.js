@@ -3,6 +3,7 @@ const { models, connection } = require("./index");
 module.exports = {
   getAnimal,
   getAnimals,
+  getShelterAnimals,
   addAnimal,
   updateAnimal,
   getAvailableAnimals,
@@ -22,6 +23,19 @@ async function getAnimals() {
     .populate("shelter_id")
   // await connection.close();
   return animals;
+}
+
+async function getShelterAnimals(id) {
+  let animals
+  try {
+    await connection.init()
+    animals = await models.animal.find({ shelter_id: id }).catch(err => console.log(err));
+  } catch (err) {
+    console.log(err);
+  } finally {
+    // await connection.close();
+    return animals;
+  }
 }
 
 async function addAnimal(animalObj) {

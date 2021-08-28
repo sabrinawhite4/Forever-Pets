@@ -7,9 +7,9 @@ const AnimalSchema = new Schema({
     profile_pic: String,
     animal_bio: String,
     breed: String,
+    species: String,
     is_adopted: { type: Boolean, default: false},
     shelter_id: { type: Schema.Types.ObjectId, ref: "Shelters" },
-    species_id: { type: "ObjectId", ref: "Species" }
 });
 
 AnimalSchema.statics.getNotAdopted = async function () {

@@ -2,6 +2,7 @@ const { models, connection } = require("./index");
 
 module.exports = {
   getFavorites,
+  getUserFavorites,
   createFavorites,
   addFavorite,
   removeFavorite,
@@ -12,6 +13,12 @@ async function getFavorites(id) {
   const favorites = await models.userFavorites.find({ user_id: id });
   await connection.close();
   return favorites[0];
+}
+
+async function getUserFavorites(user_id) {
+  await connection.init();
+  const favorites = await models.userFavorites.getUserFavorites(user_id);
+  return favorites;
 }
 
 async function createFavorites(id) {
