@@ -18,17 +18,6 @@ function ShelterProfile() {
   const [donationLink, setDonationLink] = useState("");
   const [scheduleLink, setScheduleLink] = useState("");
   const [editing, setEditing] = useState(false);
-    // {
-    //   id: 1,
-    //   name: "Midnight",
-    //   species: "Cat",
-    //   breed: "Domestic Black Cat",
-    //   age: "3",
-    //   profile_pic:
-    //     "https://us.123rf.com/450wm/kolessl/kolessl1405/kolessl140500005/28070318-black-kitten-at-home-on-the-bed.jpg?ver=6",
-    //   animal_bio:
-    //     "Dark as night, soft as fresh fallen snow. Midnight will love you forever but isn't a stranger to space!",
-    // },
   const dispatch = useDispatch();
   const shelter = useSelector((state) => state.shelter.shelter);
   const loading = useSelector((state) => state.shelter.loading);
@@ -36,10 +25,9 @@ function ShelterProfile() {
   const shelterAnimals = useSelector((state) => state.shelter.animals);
 
   useEffect(() => {
-    // dispatch(requestShelterData(user.shelter_id));
-    dispatch(requestShelterData("61184ee7db91a6f130470e1a"));
-    dispatch(requestShelterAnimals("61184ee7db91a6f130470e1a"));
-  }, [dispatch]);
+    dispatch(requestShelterData(user.shelter_id));
+    dispatch(requestShelterAnimals(user.shelter_id));
+  }, [dispatch, user]);
 
   useEffect(() => {
     if (shelter) {
@@ -65,11 +53,11 @@ function ShelterProfile() {
     };
     axios.put(`http://localhost:4000/api/shelters/${shelter._id}`, shelterData);
     setEditing(!editing);
-    dispatch(requestShelterData("61184ee7db91a6f130470e1a"));
+    dispatch(requestShelterData(user.shelter_id));
   }
 
   function getAnimals() {
-    dispatch(requestShelterAnimals("61184ee7db91a6f130470e1a"));
+    dispatch(requestShelterAnimals(user.shelter_id));
   }
 
   return (
@@ -104,6 +92,7 @@ function ShelterProfile() {
         <ShelterAnimalsDisplay
           animalsArray={shelterAnimals}
           getAnimals={getAnimals}
+          shelterId={shelter._id}
         />
       </div>
       <button className="btn btn-success btn-lg" type="submit">

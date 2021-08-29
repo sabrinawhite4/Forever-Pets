@@ -5,4 +5,5 @@ module.exports = {
     userFavorites: require('./user-favorites'),
     species: require('./species'),
     userBio: require('./user-bio'),
+    appointment: require('./appointment'),
 }

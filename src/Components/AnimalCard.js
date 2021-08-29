@@ -5,16 +5,6 @@ function InfoCard(props) {
   const { animalArray, animalIndex, goToNextFn, goToPreviousFn, handleHeartFn} = props;
   const animal = animalArray[animalIndex];
 
-  // const animalOld = {
-  //   name: "Rover",
-  //   age: "2",
-  //   profile_pic:
-  //     "https://www.pumpkin.care/dog-breeds/wp-content/uploads/2021/02/Beagle-Hero.png",
-  //   animal_bio:
-  //     " I love being outside, but always have fun just cuddling and being lazy",
-  //   breed: "Beagle",
-  //   shelter: { name: "Sabrina's Home for Underprivileged Animals" },
-  // };
   return animal ? (
     <div className="info-card">
       <div className="info-card-body">
@@ -45,7 +35,8 @@ function InfoCard(props) {
         <ActionBar
           goToNextFn={goToNextFn}
           goToPreviousFn={goToPreviousFn}
-          handleHeartFn={ handleHeartFn}
+          handleHeartFn={handleHeartFn}
+          animal={animal}
         />
       </div>
     </div>

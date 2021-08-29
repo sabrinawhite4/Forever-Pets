@@ -10,6 +10,7 @@ const auth = require('./controllers/authController.js');
 const species = require('./controllers/speciesController.js');
 const ubc = require('./controllers/userBioController.js');
 const stripe = require('./controllers/stripeController.js');
+const appt = require('./controllers/appointmentController.js');
 
 const app = express();
 
@@ -66,3 +67,8 @@ app.put('/api/bio/:id', ubc.updateUserBio);
 app.delete('/api/bio/:id', ubc.removeUserBio);
 // Stripe endpoints
 app.post('/api/stripe', stripe.createSession);
+// Appointment endpoints
+app.get('/api/appointment/:id', appt.getAppointment);
+app.get('/api/appointments', appt.getAppointments);
+app.post('/api/appointment', appt.createAppointment);
+app.put('/api/appointment/:id/cancel', appt.cancelAppointment);
