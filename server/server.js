@@ -11,6 +11,7 @@ const species = require('./controllers/speciesController.js');
 const ubc = require('./controllers/userBioController.js');
 const stripe = require('./controllers/stripeController.js');
 const appt = require('./controllers/appointmentController.js');
+const twilio = require('./controllers/twilioController.js');
 
 const app = express();
 
@@ -38,6 +39,8 @@ app.put('/api/animals/:id', ac.updateAnimal);
 app.post('/api/auth/login', auth.login);
 app.post('/api/auth/register', auth.register);
 app.post('/api/auth/logout', auth.logout);
+app.put('/api/auth/reset-password/:id', auth.resetPassword);
+
 // Favorites endpoints
 app.get('/api/favorites/:id', fc.getFavorites);
 app.get('/api/favorites/user/:id', fc.getUserFavorites);
@@ -72,3 +75,5 @@ app.get('/api/appointment/:id', appt.getAppointment);
 app.get('/api/appointments', appt.getAppointments);
 app.post('/api/appointment', appt.createAppointment);
 app.put('/api/appointment/:id/cancel', appt.cancelAppointment);
+// Twilio endpoints
+app.post('/api/forgot-password', twilio.forgetPassword);

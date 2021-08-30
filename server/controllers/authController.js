@@ -1,5 +1,5 @@
 const bcrypt = require("bcryptjs");
-const { getUser, registerUser } = require("../database/userDb");
+const { getUser, registerUser, updateUser} = require("../database/userDb");
 
 module.exports = {
   login: async (req, res) => {
@@ -46,5 +46,22 @@ module.exports = {
         console.log(req.body);
         req.session.destroy();
         res.status(200).send("Logged Out"); 
-    }
+  },
+  resetPassword: async (req, res) => {
+    console.log("Resetting Password");
+    console.log(req.body);
+    const id = req.params.id;
+    const { password } = req.body;
+    const { session } = req;
+    const salt = bcrypt.genSaltSync(5);
+    const passwordHash = bcrypt.hashSync(password, salt);
+    let userObj = {
+      passwordHash,
+    };
+    await updateUser(id, userObj);
+    let userToReturn = { ...userObj };
+    userToReturn.passwordHash = undefined;
+    session.user = userToReturn;
+    res.status(200).send(session.user);
+  }
 };

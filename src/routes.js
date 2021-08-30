@@ -14,6 +14,7 @@ import AppointmentConfirmation from "./Components/AppointmentConfirmation";
 import MerchPage from "./Components/MerchPage";
 import Success from "./Components/Success";
 import Cancel from "./Components/Cancel";
+import ForgotPasswordConfirmation from './Components/ForgotPasswordConfirmation';
 
 export default (
   <Switch>
@@ -25,6 +26,7 @@ export default (
     <Route path="/appointment" component={Appointment} />
     <Route path="/logout" component={Logout} />
     <Route path="/forget-password" component={ForgetPassword} />
+    <Route path="/forget-password-confirmation" component={ForgotPasswordConfirmation} />
     <Route path="/reset-password" component={ResetPassword} />
     <Route path="/logout-confirmation" component={LogoutConfirmation} />
     <Route path="/appointment-confirmation" component={AppointmentConfirmation} />
