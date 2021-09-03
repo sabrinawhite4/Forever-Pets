@@ -46,10 +46,10 @@ function Register() {
   return (
     <Background>
       {isOnStepOne ? (
-        <div>
-          <div> Create An Account</div>
+        <div className= "register-form">
+          <h3> Create An Account</h3>
           <div className="form-group">
-            <label>Email</label>
+            <label>Email:</label>
             <input
               type="email"
               className="form-control"
@@ -59,7 +59,7 @@ function Register() {
             />
           </div>
           <div className="form-group">
-            <label>Username</label>
+            <label>Username:</label>
             <input
               type="text"
               className="form-control"
@@ -69,7 +69,7 @@ function Register() {
             />
           </div>
           <div className="form-group">
-            <label>Password</label>
+            <label>Password:</label>
             <input
               type="password"
               className="form-control"
@@ -79,7 +79,7 @@ function Register() {
             />
           </div>
           <div className="form-group">
-            <label>Confirm Password</label>
+            <label>Confirm Password:</label>
             <input
               type="password"
               className="form-control"
@@ -90,7 +90,7 @@ function Register() {
           </div>
           <button
             onClick={goToStepTwo}
-            className="btn btn-success btn-lg"
+            className="login-btn"
             type="submit"
           >
             Continue
@@ -109,8 +109,6 @@ function Register() {
             setPhone = { setPhone }
           />
       )}
-      <br></br>
-      <a href="/login">Already have an account?</a>
     </Background>
   );
 }

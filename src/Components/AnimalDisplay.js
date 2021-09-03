@@ -32,22 +32,27 @@ function AnimalDisplay(props) {
   }
 
   return (
-    <li key={animal.id}>
+    <div key={animal.id}>
       {!editing ? (
-        <div>
+        <div className="shelter-animal-card">
           <h4>
             {animal.name}, {animal.age}
           </h4>
           {animal.is_adopted ? (
             <h4>Adopted</h4>
           ) : (
-            <button onClick={markAdopted}>Mark Adopted</button>
+            <button className="login-btn" onClick={markAdopted}>
+              Mark Adopted
+            </button>
           )}
-          <img src={animal.profile_pic} alt={animal.name} />
+          <img className="shelter-animal-pic" src={animal.profile_pic} alt={animal.name} />
           <p>
             {animal.species}, {animal.breed}
           </p>
           <p>{animal.animal_bio}</p>
+          <button className="login-btn" onClick={() => setEditing(!editing)}>
+            Edit Animal
+          </button>
         </div>
       ) : (
         <div>
@@ -91,14 +96,10 @@ function AnimalDisplay(props) {
             onChange={(e) => setAnimalBio(e.target.value)}
             value={animalBio}
           ></input>
+          <button onClick={saveInfo}>Save Animal</button>
         </div>
       )}
-      {!editing ? (
-        <button onClick={() => setEditing(!editing)}>Edit Animal</button>
-      ) : (
-        <button onClick={saveInfo}>Save Animal</button>
-      )}
-    </li>
+    </div>
   );
 }
 

@@ -1,0 +1,441 @@
+$background-color: #f5a382;
+$text-color: #220901;
+$background-color-light: #f1ede4c4;
+$action-color: #c75146;
+$secondary-color: #621708;
+
+.App {
+  text-align: center;
+}
+
+.logo {
+  height: 25vmin;
+  pointer-events: none;
+}
+.fp-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+.App-wrapper {
+  border: solid 4px $text-color;
+  height: 60vh;
+  width: 40vw;
+  border-radius: 30px;
+  background-color: $background-color-light;
+  box-shadow: 0px 0px 10px 2px #621708;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 35vh;
+  margin-bottom: 15px;
+  .login-btn {
+    background-color: $background-color;
+    color: $text-color;
+    border: solid 1px $background-color;
+    border-radius: 15px;
+    padding: 15px 30px;
+    margin-top: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  .login-btn:hover {
+    background-color: $action-color;
+    border: solid 1px $text-color;
+    box-sizing: border-box;
+  }
+}
+  .login-btn {
+    background-color: $background-color;
+    color: $text-color;
+    border: solid 1px $background-color;
+    border-radius: 15px;
+    padding: 15px 30px;
+    margin-top: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+    .login-btn:hover {
+    background-color: $action-color;
+    border: solid 1px $text-color;
+    box-sizing: border-box;
+  }
+.register-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 47vh;
+  padding: 7px;
+  margin-bottom: 15px;
+  .login-btn {
+    background-color: $background-color;
+    color: $text-color;
+    border: solid 1px $background-color;
+    border-radius: 15px;
+    padding: 15px 30px;
+    margin-top: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  .login-btn:hover {
+    background-color: $action-color;
+    border: solid 1px $text-color;
+    box-sizing: border-box;
+  }
+}
+.login-title {
+  h2 {
+    font-weight: 300;
+  }
+}
+.login-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  a {
+    margin: 0;
+    font-size: 18px;
+  }
+  h5 {
+    margin: 20px;
+    font-size: 19px;
+    font-weight: 450;
+  }
+}
+.form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  label {
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 15px;
+  }
+  input {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+  }
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+  div {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    a {
+      font-size: 0.9em;
+      padding: 4px;
+    }
+  }
+}
+#support-email {
+  font-size: 20px;
+}
+.support-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#sad-puppy-pic {
+  height: 25vh;
+  margin-top: 15px;
+}
+#naah-button {
+  background-color: $secondary-color;
+  color: $background-color-light;
+  border: none;
+  height: 50px;
+  width: 20vw;
+  margin-top: 10px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 15px;
+}
+#naah-button:hover {
+  background-color: $background-color-light;
+  color: $text-color;
+  border: solid 1px $text-color;
+  box-sizing: border-box;
+}
+#save-button {
+    @extend #naah-button;
+    width: 10vw;
+    border-radius: 15px;
+}
+#yes-button {
+  background-color: $background-color-light;
+  border: none;
+  height: 50px;
+  width: 20vw;
+  margin-top: 15px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 15px;
+}
+#yes-button:hover {
+  background-color: $background-color;
+  border: solid 1px $background-color-light;
+  box-sizing: border-box;
+}
+.logout-options {
+  h3 {
+    margin: 5px;
+  }
+}
+.welcome-header {
+  h4 {
+    margin: 7px;
+  }
+}
+.welcome-paragraph {
+  font-weight: 350;
+}
+.name-input {
+  width: 10vw;
+  margin: 7px;
+}
+#checkbox {
+  width: 3vw;
+  height: 1.5vw;
+}
+.create-account-btn {
+  background-color: $secondary-color;
+  color: $background-color-light;
+  border: none;
+  height: 40px;
+  width: 10vw;
+  margin-top: 10px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 15px;
+  margin: 0px 20px;
+}
+.create-account-btn:hover {
+  background-color: $background-color-light;
+  color: $text-color;
+  border: solid 1px $text-color;
+  box-sizing: border-box;
+}
+.go-back-btn {
+  background-color: $secondary-color;
+  color: $background-color-light;
+  border: none;
+  height: 40px;
+  width: 10vw;
+  margin-top: 10px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 15px;
+  margin: 0px 20px;
+}
+.go-back-btn:hover {
+  background-color: $background-color-light;
+  color: $text-color;
+  border: solid 1px $text-color;
+  box-sizing: border-box;
+}
+.App-wrapper-tall {
+  border: solid 4px $text-color;
+  min-height: 100vh;
+  width: 70vw;
+  border-radius: 30px;
+  background-color: $background-color-light;
+  box-shadow: 0px 0px 10px 2px #621708;
+}
+.profile-form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  label {
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 15px;
+  }
+  input {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+  }
+  h2 {
+      margin: 14px;
+  }
+}
+.animal-card {
+    border: solid 3px $text-color;
+    height: 30vh;
+    width: 20vw;
+    border-radius: 30px;
+    img {
+        height:50%
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+}
+.animal-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 30px;
+    
+}
+.forget-password-form {
+  @extend .login-form;
+  input {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: $background-color;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: $text-color;
+  background-image: url("./paw-prints.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.link-btn {
+    height: 40px;
+    width: 10vw;
+    padding: 15px;
+}
+.action-btn-img {
+    height: 40px;
+    size: 10vw;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.action-btns {
+    button {
+        margin: 10px;
+        border-radius: 50%;
+        background-color: #30D5C8;
+    }
+}
+.appointment-confirmation {
+  display: flex;
+  flex-direction: column;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.merch-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap
+}
+
+.shelter-animal-card {
+    @extend .animal-card;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 29vw;
+    min-height: 80vh;
+    margin: 1px;
+    img {
+    size: 30%;
+    }
+    h4{ margin: 0;}
+    p {margin: 0; font-size: 0.9em;}
+}
+.shelter-animal-pic {
+    size: 30%;
+    max-width: 100%;
+    max-height: 50%;
+}
+.shelter-animal-wrapper {
+    @extend .animal-wrapper;
+    margin: 10px;
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.shelter-profile-animals {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.merch-page__content {
+    img {
+        max-height: 321px;
+        max-width: 320px;
+    }
+}
+.cart-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cart-btn {
+    @extend #naah-button;
+    margin-bottom: 15px;
+}
+.fa-bars {
+    background-color: $background-color;
+}
+#dropdown-basic {
+    background-color: $background-color;
+    border: none;
+    margin-left: 100px;
+}
+.dropdown-menu {
+    background-color: $background-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown-display {
+    background-color: $background-color-light;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

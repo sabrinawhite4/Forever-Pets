@@ -32,9 +32,9 @@ function ShelterAnimalsDisplay(props) {
   }
 
   return (
-    <div>
+    <div className="shelter-profile-animals">
       {!addNewAnimal ? (
-        <button onClick={() => setAddNewAnimal(!addNewAnimal)}>
+        <button className="login-btn" onClick={() => setAddNewAnimal(!addNewAnimal)}>
           Add New Animal
         </button>
       ) : (
@@ -88,7 +88,7 @@ function ShelterAnimalsDisplay(props) {
           <button onClick={saveAnimal}>Save Animal</button>
         </div>
       )}
-      <ul>{animalList}</ul>
+      <div className="shelter-animal-wrapper">{animalList}</div>
     </div>
   );
 }

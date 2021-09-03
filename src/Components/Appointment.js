@@ -31,6 +31,7 @@ function Appointment() {
     <div>
       <h3>Pick a Playdate and Time!</h3>
       <DatePicker
+        className="date-picker"
         selected={date}
         onChange={(date) => setDate(date)}
         showTimeSelect

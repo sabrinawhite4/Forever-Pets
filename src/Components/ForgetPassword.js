@@ -19,8 +19,8 @@ function ForgetPassword() {
       <h1>Forgot Your Password?</h1>
       <p>Enter your email address below to reset your password.</p>
       <div className="forget-password-form" >
-        <input onChange={(e) => setEmail(e.target.value)}type="email" placeholder="Enter your Email" />
-        <button onClick={handleSubmit} type="submit">Submit</button>
+        <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Enter your Email" />
+        <button className="login-btn" onClick={handleSubmit} type="submit">Submit</button>
       </div>
     </div>
   );

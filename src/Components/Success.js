@@ -5,7 +5,7 @@ function Success() {
     <div className="purchase-success">
       <h1>Order Placed Successfully!</h1>
       <p>You will be emailed when your order ships!</p>
-      <a href="/merch">Back to Merch Page</a>
+      <a id= "naah-button" className="link-btn"href="/merch">Back to Merch Page</a>
     </div>
   );
 }

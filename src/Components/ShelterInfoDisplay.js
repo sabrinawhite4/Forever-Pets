@@ -36,16 +36,16 @@ function ShelterInfoDisplay(props) {
   //   shelter_logo: "https://s3.amazonaws.com/shelter-logo/shelter-logo.png",
   // };
 
-  return (
+  return shelter ? (
     <div>
       <h1>{shelter.name}</h1>
       {!editing ? (
         <div>
           <h2>
-            {shelter.street}, {shelter.city}, {shelter.state} {shelter.zip}
+            Address: {shelter.street}, {shelter.city}, {shelter.state} {shelter.zip}
           </h2>
-          <h3>{shelter.email}</h3>
-          <h3>{shelter.phone_number}</h3>
+          <h3>Contact Email: {shelter.email}</h3>
+          <h3>Phone Number: {shelter.phone_number}</h3>
         </div>
       ) : (
         <div>
@@ -66,8 +66,8 @@ function ShelterInfoDisplay(props) {
           </div>
         </div>
       )}
-      <div className="form-group">
-        <h2>About Our Shelter!</h2>
+      <div className="profile-form-group">
+        <label>About Our Shelter:</label>
 
         {!editing ? (
           <h3>{shelter.shelter_bio}</h3>
@@ -104,13 +104,13 @@ function ShelterInfoDisplay(props) {
             type="text"
             className="form-control"
             placeholder="Provide an appointment link (ex. calendly, google calender, etc.)"
-              onChange={(e) => setScheduleLink(e.target.value)}
-              value={scheduleLink}
+            onChange={(e) => setScheduleLink(e.target.value)}
+            value={scheduleLink}
           />
         )}
       </div>
     </div>
-  );
+  ) : <div>loading</div>;
 }
 
 export default ShelterInfoDisplay;

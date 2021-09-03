@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Background from "./shared/Background.js";
 import {
   requestShelterData,
   requestShelterAnimals,
@@ -25,8 +24,9 @@ function ShelterProfile() {
   const shelterAnimals = useSelector((state) => state.shelter.animals);
 
   useEffect(() => {
-    dispatch(requestShelterData(user.shelter_id));
-    dispatch(requestShelterAnimals(user.shelter_id));
+    console.log(user.shelter_id)
+    dispatch(requestShelterData("61184ee7db91a6f130470e1a"));
+    dispatch(requestShelterAnimals("61184ee7db91a6f130470e1a"));
   }, [dispatch, user]);
 
   useEffect(() => {
@@ -60,13 +60,16 @@ function ShelterProfile() {
     dispatch(requestShelterAnimals(user.shelter_id));
   }
 
-  return (
-    <Background>
-      <div>Shelter Profile Page</div>
+  return shelter ? (
+    <div>
       {!editing ? (
-        <button onClick={() => setEditing(!editing)}>Edit Profile</button>
+        <button className="login-btn" onClick={() => setEditing(!editing)}>
+          Edit Profile
+        </button>
       ) : (
-        <button onClick={saveInfo}>Save Changes</button>
+        <button id="save-button" onClick={saveInfo}>
+          Save Changes
+        </button>
       )}
       <ShelterInfoDisplay
         shelter={shelter}
@@ -89,20 +92,18 @@ function ShelterProfile() {
       />
       <div className="form-group">
         <h2> Animals Display</h2>
+      </div>
+      {shelter ? (
         <ShelterAnimalsDisplay
           animalsArray={shelterAnimals}
           getAnimals={getAnimals}
           shelterId={shelter._id}
         />
-      </div>
-      <button className="btn btn-success btn-lg" type="submit">
-        Change Password
-      </button>
-      <button className="btn btn-success btn-lg" type="submit">
-        Log out
-      </button>
-    </Background>
-  );
+      ) : (
+        <div>Loading...</div>
+      )}
+    </div>
+  ) : null;
 }
 
 export default ShelterProfile;

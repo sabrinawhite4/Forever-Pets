@@ -45,7 +45,7 @@ function ResetPassword() {
           type="password"
           placeholder="Confirm New Password"
         />
-        <button onClick={handleSubmit} type="submit">
+        <button className="login-btn" onClick={handleSubmit} type="submit">
           Reset Password
         </button>
       </div>

@@ -2,9 +2,320 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.logo {
+  height: 25vmin;
   pointer-events: none;
+}
+
+.fp-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.App-wrapper {
+  border: solid 4px #220901;
+  height: 60vh;
+  width: 40vw;
+  border-radius: 30px;
+  background-color: #f1ede4c4;
+  box-shadow: 0px 0px 10px 2px #621708;
+}
+
+.login-form, .forget-password-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 35vh;
+  margin-bottom: 15px;
+}
+.login-form .login-btn, .forget-password-form .login-btn {
+  background-color: #f5a382;
+  color: #220901;
+  border: solid 1px #f5a382;
+  border-radius: 15px;
+  padding: 15px 30px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.login-form .login-btn:hover, .forget-password-form .login-btn:hover {
+  background-color: #c75146;
+  border: solid 1px #220901;
+  box-sizing: border-box;
+}
+
+.login-btn {
+  background-color: #f5a382;
+  color: #220901;
+  border: solid 1px #f5a382;
+  border-radius: 15px;
+  padding: 15px 30px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.login-btn:hover {
+  background-color: #c75146;
+  border: solid 1px #220901;
+  box-sizing: border-box;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 47vh;
+  padding: 7px;
+  margin-bottom: 15px;
+}
+.register-form .login-btn {
+  background-color: #f5a382;
+  color: #220901;
+  border: solid 1px #f5a382;
+  border-radius: 15px;
+  padding: 15px 30px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.register-form .login-btn:hover {
+  background-color: #c75146;
+  border: solid 1px #220901;
+  box-sizing: border-box;
+}
+
+.login-title h2 {
+  font-weight: 300;
+}
+
+.login-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.login-links a {
+  margin: 0;
+  font-size: 18px;
+}
+.login-links h5 {
+  margin: 20px;
+  font-size: 19px;
+  font-weight: 450;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.form-group label {
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 15px;
+}
+.form-group input {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+.footer div {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+}
+.footer div a {
+  font-size: 0.9em;
+  padding: 4px;
+}
+
+#support-email {
+  font-size: 20px;
+}
+
+.support-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#sad-puppy-pic {
+  height: 25vh;
+  margin-top: 15px;
+}
+
+#naah-button, .cart-btn, #save-button {
+  background-color: #621708;
+  color: #f1ede4c4;
+  border: none;
+  height: 50px;
+  width: 20vw;
+  margin-top: 10px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#naah-button:hover, .cart-btn:hover, #save-button:hover {
+  background-color: #f1ede4c4;
+  color: #220901;
+  border: solid 1px #220901;
+  box-sizing: border-box;
+}
+
+#save-button {
+  width: 10vw;
+  border-radius: 15px;
+}
+
+#yes-button {
+  background-color: #f1ede4c4;
+  border: none;
+  height: 50px;
+  width: 20vw;
+  margin-top: 15px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#yes-button:hover {
+  background-color: #f5a382;
+  border: solid 1px #f1ede4c4;
+  box-sizing: border-box;
+}
+
+.logout-options h3 {
+  margin: 5px;
+}
+
+.welcome-header h4 {
+  margin: 7px;
+}
+
+.welcome-paragraph {
+  font-weight: 350;
+}
+
+.name-input {
+  width: 10vw;
+  margin: 7px;
+}
+
+#checkbox {
+  width: 3vw;
+  height: 1.5vw;
+}
+
+.create-account-btn {
+  background-color: #621708;
+  color: #f1ede4c4;
+  border: none;
+  height: 40px;
+  width: 10vw;
+  margin-top: 10px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 15px;
+  margin: 0px 20px;
+}
+
+.create-account-btn:hover {
+  background-color: #f1ede4c4;
+  color: #220901;
+  border: solid 1px #220901;
+  box-sizing: border-box;
+}
+
+.go-back-btn {
+  background-color: #621708;
+  color: #f1ede4c4;
+  border: none;
+  height: 40px;
+  width: 10vw;
+  margin-top: 10px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 15px;
+  margin: 0px 20px;
+}
+
+.go-back-btn:hover {
+  background-color: #f1ede4c4;
+  color: #220901;
+  border: solid 1px #220901;
+  box-sizing: border-box;
+}
+
+.App-wrapper-tall {
+  border: solid 4px #220901;
+  min-height: 100vh;
+  width: 70vw;
+  border-radius: 30px;
+  background-color: #f1ede4c4;
+  box-shadow: 0px 0px 10px 2px #621708;
+}
+
+.profile-form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.profile-form-group label {
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 15px;
+}
+.profile-form-group input {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+}
+.profile-form-group h2 {
+  margin: 14px;
+}
+
+.animal-card, .shelter-animal-card {
+  border: solid 3px #220901;
+  height: 30vh;
+  width: 20vw;
+  border-radius: 30px;
+}
+.animal-card img, .shelter-animal-card img {
+  height: 50%;
+}
+.animal-card h1, .shelter-animal-card h1 {
+  font-size: 1.5em;
+}
+
+.animal-wrapper, .shelter-animal-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.forget-password-form input {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -12,20 +323,47 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
 .App-header {
-  background-color: #282c34;
+  background-color: #f5a382;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #220901;
+  background-image: url("./paw-prints.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.link-btn {
+  height: 40px;
+  width: 10vw;
+  padding: 15px;
+}
+
+.action-btn-img {
+  height: 40px;
+  size: 10vw;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.action-btns button {
+  margin: 10px;
+  border-radius: 50%;
+  background-color: #30D5C8;
+}
+
+.appointment-confirmation {
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes App-logo-spin {
@@ -36,3 +374,97 @@
     transform: rotate(360deg);
   }
 }
+.merch-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.shelter-animal-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 29vw;
+  min-height: 80vh;
+  margin: 1px;
+}
+.shelter-animal-card img {
+  size: 30%;
+}
+.shelter-animal-card h4 {
+  margin: 0;
+}
+.shelter-animal-card p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.shelter-animal-pic {
+  size: 30%;
+  max-width: 100%;
+  max-height: 50%;
+}
+
+.shelter-animal-wrapper {
+  margin: 10px;
+  width: 60vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.shelter-profile-animals {
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.merch-page__content img {
+  max-height: 321px;
+  max-width: 320px;
+}
+
+.cart-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-btn {
+  margin-bottom: 15px;
+}
+
+.fa-bars {
+  background-color: #f5a382;
+}
+
+#dropdown-basic {
+  background-color: #f5a382;
+  border: none;
+  margin-left: 100px;
+}
+
+.dropdown-menu {
+  background-color: #f5a382;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-display {
+  background-color: #f1ede4c4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=App.css.map */

@@ -30,6 +30,9 @@ function UserProfile() {
     axios.put(`http://localhost:4000/api/users/${user._id}`, userData);
     setEditing(!editing);
     dispatch(requestUserData(user.username));
+    setAboutMe(user.profile_bio);
+    setLocation(user.location);
+    setIdealPet(user.ideal_pet);
   }
 
   return (
@@ -38,23 +41,21 @@ function UserProfile() {
         "loading"
       ) : (
         <div className="user-profile">
-          <div>User Profile Page</div>
           {!editing ? (
             <button onClick={() => setEditing(!editing)}>Edit Profile</button>
           ) : (
             <button onClick={saveInfo}>Save Changes</button>
           )}
-          <form className="login-form">
-            <div className="form-group">
-              <label>User Info:</label>
+          <div>
+            <div className="profile-group">
               <h2>{user.username}</h2>
               <h3>
-                {user.first_name} {user.last_name}
+                Full Name: {user.first_name} {user.last_name}
               </h3>
-              <h3>{user.email}</h3>
-              <h3>{user.phone_number}</h3>
+              <h3>Email: {user.email}</h3>
+              <h3>Phone Number: {user.phone_number}</h3>
             </div>
-            <div className="form-group">
+            <div className="profile-form-group">
               <h2>About Me:</h2>
               {editing ? (
                 <input
@@ -68,13 +69,13 @@ function UserProfile() {
                 <p>{user.profile_bio}</p>
               )}
             </div>
-            <div className="form-group">
-              <h2>Where are you from? So we can find animals near you!</h2>
+            <div className="profile-form-group">
+              <h2>Where are you from?</h2>
               {editing ? (
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Enter your location"
+                  placeholder="City, ST"
                   onChange={(e) => setLocation(e.target.value)}
                   value={location}
                 />
@@ -82,7 +83,7 @@ function UserProfile() {
                 <p>{user.location}</p>
               )}
             </div>
-            <div className="form-group">
+            <div className="profile-form-group">
               <h2>Your Ideal Pet:</h2>
               {editing ? (
                 <input
@@ -96,20 +97,12 @@ function UserProfile() {
                 <p>{user.ideal_pet}</p>
               )}
             </div>
-            <div className="form-group">
-              <h2> Favorites Display</h2>
+            <div className="profile-form-group">
+              <h2> My Favorites: </h2>
               <p>{user.user_favorites}</p>
-              </div>
-              <DisplayUserFavorites
-                user = {user}
-              />
-            <button className="btn btn-success btn-lg" type="submit">
-              Change Password
-            </button>
-            <button className="btn btn-success btn-lg" type="submit">
-              Log out
-            </button>
-          </form>
+            </div>
+              {user ? <DisplayUserFavorites user={user} /> : null}
+          </div>
         </div>
       )}
     </Background>

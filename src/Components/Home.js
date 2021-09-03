@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AnimalCard from "./AnimalCard";
 import { useSelector, useDispatch } from "react-redux";
-
 import { requestAvailableAnimals } from "./../redux/actions/animalActions.js";
 
 export default function Home() {
@@ -63,7 +62,6 @@ export default function Home() {
           goToPreviousFn={goToPrevious}
           handleHeartFn={handleHeart}
         />
-        {user.loading ? "loading" : user.user.username}
       </body>
     </div>
   );

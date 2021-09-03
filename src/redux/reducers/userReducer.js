@@ -1,4 +1,4 @@
-import { REQUEST_USER_DATA, USER_ERROR} from "../types"
+import { REQUEST_USER_DATA, REQUEST_USER_FAVORITES, USER_ERROR} from "../types"
 
 let initialState = {
   user: {
@@ -15,6 +15,7 @@ let initialState = {
     profile_bio: null,
     user_favorites: [],
   },
+  userFavorites: [],
   loading: true
 };
 
@@ -26,6 +27,12 @@ export default function reducer(state = initialState, action) {
         user: action.payload,
         loading: false,
       };
+    case REQUEST_USER_FAVORITES:
+      return {
+        ...state,
+        userFavorites: action.payload,
+        loading: false
+      }
     case USER_ERROR:
       return {
         loading: false,
