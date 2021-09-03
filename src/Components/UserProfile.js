@@ -42,9 +42,9 @@ function UserProfile() {
       ) : (
         <div className="user-profile">
           {!editing ? (
-            <button onClick={() => setEditing(!editing)}>Edit Profile</button>
+            <button className="login-btn" onClick={() => setEditing(!editing)}>Edit Profile</button>
           ) : (
-            <button onClick={saveInfo}>Save Changes</button>
+            <button className="login-btn" onClick={saveInfo}>Save Changes</button>
           )}
           <div>
             <div className="profile-group">

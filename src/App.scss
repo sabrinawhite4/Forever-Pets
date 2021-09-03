@@ -50,21 +50,21 @@ $secondary-color: #621708;
     box-sizing: border-box;
   }
 }
-  .login-btn {
-    background-color: $background-color;
-    color: $text-color;
-    border: solid 1px $background-color;
-    border-radius: 15px;
-    padding: 15px 30px;
-    margin-top: 10px;
-    cursor: pointer;
-    box-sizing: border-box;
-  }
-    .login-btn:hover {
-    background-color: $action-color;
-    border: solid 1px $text-color;
-    box-sizing: border-box;
-  }
+.login-btn {
+  background-color: $background-color;
+  color: $text-color;
+  border: solid 1px $background-color;
+  border-radius: 15px;
+  padding: 15px 30px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.login-btn:hover {
+  background-color: $action-color;
+  border: solid 1px $text-color;
+  box-sizing: border-box;
+}
 .register-form {
   display: flex;
   flex-direction: column;
@@ -171,9 +171,9 @@ $secondary-color: #621708;
   box-sizing: border-box;
 }
 #save-button {
-    @extend #naah-button;
-    width: 10vw;
-    border-radius: 15px;
+  @extend #naah-button;
+  width: 10vw;
+  border-radius: 15px;
 }
 #yes-button {
   background-color: $background-color-light;
@@ -270,29 +270,40 @@ $secondary-color: #621708;
     border: none;
   }
   h2 {
-      margin: 14px;
+    margin: 14px;
   }
 }
 .animal-card {
-    border: solid 3px $text-color;
-    height: 30vh;
-    width: 20vw;
-    border-radius: 30px;
-    img {
-        height:50%
-    }
-    h1 {
-        font-size: 1.5em;
-    }
+  border: solid 3px $text-color;
+  height: 30vh;
+  width: 20vw;
+  border-radius: 30px;
+  img {
+    height: 50%;
+    
+  }
+  h1 {
+    font-size: 1.2em;
+  }
+}
+.add-animal-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  input {
+    border-radius: 50px;
+    padding: 10px;
+    margin: 5px;
+  }
 }
 .animal-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-    align-items: center;
-    margin-bottom: 30px;
-    
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 30px;
 }
 .forget-password-form {
   @extend .login-form;
@@ -328,22 +339,22 @@ $secondary-color: #621708;
   color: #61dafb;
 }
 .link-btn {
-    height: 40px;
-    width: 10vw;
-    padding: 15px;
+  height: 40px;
+  width: 10vw;
+  padding: 15px;
 }
 .action-btn-img {
-    height: 40px;
-    size: 10vw;
-    border-radius: 50%;
-    margin: 0 auto;
+  height: 40px;
+  size: 10vw;
+  border-radius: 50%;
+  margin: 0 auto;
 }
 .action-btns {
-    button {
-        margin: 10px;
-        border-radius: 50%;
-        background-color: #30D5C8;
-    }
+  button {
+    margin: 10px;
+    border-radius: 50%;
+    background-color: #30d5c8;
+  }
 }
 .appointment-confirmation {
   display: flex;
@@ -358,92 +369,97 @@ $secondary-color: #621708;
   }
 }
 .merch-page {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .shelter-animal-card {
-    @extend .animal-card;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 29vw;
-    min-height: 80vh;
-    margin: 1px;
-    img {
+  @extend .animal-card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 29vw;
+  min-height: 80vh;
+  margin: 1px;
+  img {
     size: 30%;
-    }
-    h4{ margin: 0;}
-    p {margin: 0; font-size: 0.9em;}
+  }
+  h4 {
+    margin: 0;
+  }
+  p {
+    margin: 0;
+    font-size: 0.9em;
+  }
 }
 .shelter-animal-pic {
-    size: 30%;
-    max-width: 100%;
-    max-height: 50%;
+  size: 30%;
+  max-width: 100%;
+  max-height: 50%;
 }
 .shelter-animal-wrapper {
-    @extend .animal-wrapper;
-    margin: 10px;
-    width: 60vw;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+  @extend .animal-wrapper;
+  margin: 10px;
+  width: 60vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 .shelter-profile-animals {
-    width: 60vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 .merch-page__content {
-    img {
-        max-height: 321px;
-        max-width: 320px;
-    }
+  img {
+    max-height: 321px;
+    max-width: 320px;
+  }
 }
 .cart-counter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .cart-btn {
-    @extend #naah-button;
-    margin-bottom: 15px;
+  @extend #naah-button;
+  margin-bottom: 15px;
 }
 .fa-bars {
-    background-color: $background-color;
+  background-color: $background-color;
 }
 #dropdown-basic {
-    background-color: $background-color;
-    border: none;
-    margin-left: 100px;
+  background-color: $background-color;
+  border: none;
+  margin-left: 100px;
 }
 .dropdown-menu {
-    background-color: $background-color;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .dropdown-display {
-    background-color: $background-color-light;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  background-color: $background-color-light;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .react-datepicker__day--keyboard-selected,
 .react-datepicker__month-text--keyboard-selected,
 .react-datepicker__quarter-text--keyboard-selected,
 .react-datepicker__year-text--keyboard-selected {
-  background-color: #f5a382 !important;
+  $background-color: #f5a382;
 }
 .react-datepicker__month {
   background-color: #c75146;

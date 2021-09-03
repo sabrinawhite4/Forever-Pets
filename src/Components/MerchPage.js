@@ -56,7 +56,7 @@ function MerchPage() {
       <div className="merch-page__content">
         <h1>Puppy Plushie</h1>
         <img
-          src="https://target.scene7.com/is/image/Target/GUEST_cf7561ed-e294-4a89-9b56-fd3d70c0b67c?wid=488&hei=488&fmt=pjpeg"
+          src="https://d1wqzb5bdbcre6.cloudfront.net/b9650317970a1ff6610cc6302ed7eb6d02174be07841fe23cc9f1eeea4469655/68747470733a2f2f66696c65732e7374726970652e636f6d2f6c696e6b732f4d44423859574e6a64463878536c4e444d58564561564a6c624764796355356f66475a735833526c6333526665545a754f446c7a656d6c7951585a6a5a306432525642504d6a5257567a6c783030734e3775596c536a"
           alt="Puppy Plush"
         />
         <h3>$20</h3>

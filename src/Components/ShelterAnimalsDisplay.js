@@ -34,11 +34,14 @@ function ShelterAnimalsDisplay(props) {
   return (
     <div className="shelter-profile-animals">
       {!addNewAnimal ? (
-        <button className="login-btn" onClick={() => setAddNewAnimal(!addNewAnimal)}>
+        <button
+          className="login-btn"
+          onClick={() => setAddNewAnimal(!addNewAnimal)}
+        >
           Add New Animal
         </button>
       ) : (
-        <div>
+        <div className="add-animal-form">
           <div>
             <input
               type="text"
@@ -77,15 +80,21 @@ function ShelterAnimalsDisplay(props) {
               onChange={(e) => setBreed(e.target.value)}
               value={breed}
             ></input>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Animal Bio"
+              onChange={(e) => setAnimalBio(e.target.value)}
+              value={animalBio}
+            ></input>
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Animal Bio"
-            onChange={(e) => setAnimalBio(e.target.value)}
-            value={animalBio}
-          ></input>
-          <button onClick={saveAnimal}>Save Animal</button>
+          <button
+            className="login-btn"
+            onClick={() => setAddNewAnimal(!addNewAnimal)}
+          >
+            Cancel Add Animal
+          </button>
+          <button id="naah-button" onClick={saveAnimal}>Save Animal</button>
         </div>
       )}
       <div className="shelter-animal-wrapper">{animalList}</div>

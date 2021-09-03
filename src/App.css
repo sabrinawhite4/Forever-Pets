@@ -300,7 +300,19 @@
   height: 50%;
 }
 .animal-card h1, .shelter-animal-card h1 {
-  font-size: 1.5em;
+  font-size: 1.2em;
+}
+
+.add-animal-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.add-animal-form input {
+  border-radius: 50px;
+  padding: 10px;
+  margin: 5px;
 }
 
 .animal-wrapper, .shelter-animal-wrapper {
@@ -358,7 +370,7 @@
 .action-btns button {
   margin: 10px;
   border-radius: 50%;
-  background-color: #30D5C8;
+  background-color: #30d5c8;
 }
 
 .appointment-confirmation {
@@ -465,13 +477,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.react-datepicker__day--keyboard-selected,
-.react-datepicker__month-text--keyboard-selected,
-.react-datepicker__quarter-text--keyboard-selected,
-.react-datepicker__year-text--keyboard-selected {
-  background-color: #f5a382 !important;
 }
 
 .react-datepicker__month {

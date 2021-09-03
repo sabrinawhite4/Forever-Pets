@@ -26,6 +26,9 @@ function Header() {
                 <Link to="/user">Profile</Link>
               </Dropdown.Item>
               <Dropdown.Item>
+                <Link to="/merch">Merch Page</Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
                 <Link to="/shelter">Shelter Profile</Link>
               </Dropdown.Item>
               <Dropdown.Item>

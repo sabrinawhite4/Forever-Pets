@@ -68,7 +68,6 @@ function ShelterInfoDisplay(props) {
       )}
       <div className="profile-form-group">
         <label>About Our Shelter:</label>
-
         {!editing ? (
           <h3>{shelter.shelter_bio}</h3>
         ) : (

@@ -19,17 +19,17 @@ function ActionBar(props) {
     <div className="action-bar">
       <div className="action-btns">
         <button onClick={goToNextFn}>
-          <img className="action-btn-img" src={X}></img>
+          <img className="action-btn-img" src={X} alt= "next button"></img>
         </button>
         <button onClick={handleAppointment}>
-          <img className="action-btn-img" src={pawPrint}></img>
+          <img className="action-btn-img" src={pawPrint} alt="set appointment"></img>
         </button>
         <button onClick={handleHeartFn}>
-          <img className="action-btn-img" src={heart}></img>
+          <img className="action-btn-img" src={heart} alt="favorite button"></img>
         </button>
         <button onClick={goToPreviousFn}>
           {" "}
-          <img className="action-btn-img" src={rewind}></img>
+          <img className="action-btn-img" src={rewind} alt="back button"></img>
         </button>
       </div>
     </div>
