@@ -467,4 +467,19 @@
   justify-content: center;
 }
 
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month-text--keyboard-selected,
+.react-datepicker__quarter-text--keyboard-selected,
+.react-datepicker__year-text--keyboard-selected {
+  background-color: #f5a382 !important;
+}
+
+.react-datepicker__month {
+  background-color: #c75146;
+}
+
+.react-datepicker__day {
+  border: 1px dotted black;
+}
+
 /*# sourceMappingURL=App.css.map */

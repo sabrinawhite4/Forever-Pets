@@ -37,7 +37,7 @@ function Appointment() {
         showTimeSelect
         inline="true"
       />
-      <button onClick={submit}>Submit</button>
+      <button className="login-btn" onClick={submit}>Submit</button>
     </div>
   );
 }
