@@ -18,7 +18,6 @@ export default function Home() {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log(user);
     if (!user._id) {
       setRedirectToLogin(true);
     }
