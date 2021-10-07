@@ -18,10 +18,11 @@ export default function Home() {
   }, [dispatch]);
 
   useEffect(() => {
-    if (!user) {
-      setRedirectToLogin(true); 
-    } 
-  },[user])
+    console.log(user);
+    if (!user._id) {
+      setRedirectToLogin(true);
+    }
+  }, [user]);
 
   useEffect(() => {
     setCurrentAnimal(animals[animalIndex]);
@@ -62,7 +63,7 @@ export default function Home() {
   if (redirectToLogin) {
     return <Redirect to="/login" />;
   }
-  
+
   return (
     <div className="App">
       <body className="App-body">
