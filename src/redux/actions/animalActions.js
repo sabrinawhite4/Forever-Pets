@@ -8,10 +8,11 @@ import {
 } from "../types";
 import axios from "axios";
 
-
-export const requestAllAnimals = () => async (dispatch) =>{
+export const requestAllAnimals = () => async (dispatch) => {
   try {
-    let res = await axios.get("http://localhost:4000/api/animals/all");
+    let res = await axios.get(
+      "https://forever-pets-back-end.herokuapp.com/api/animals/all"
+    );
     dispatch({
       type: REQUEST_ALL_ANIMALS,
       payload: res.data,
@@ -26,7 +27,9 @@ export const requestAllAnimals = () => async (dispatch) =>{
 
 export const requestAvailableAnimals = () => async (dispatch) => {
   try {
-    let res = await axios.get("http://localhost:4000/api/animals/available");
+    let res = await axios.get(
+      "https://forever-pets-back-end.herokuapp.com/api/animals/available"
+    );
     dispatch({
       type: REQUEST_AVAILABLE_ANIMALS,
       payload: res.data,
@@ -39,18 +42,10 @@ export const requestAvailableAnimals = () => async (dispatch) => {
   }
 };
 
-export const addAnimal = ({ ctx }) => async (dispatch) => {
-      const {
-        name,
-        age,
-        profile_pic,
-        animal_bio,
-        breed,
-        shelter_id,
-        species_id,
-      } = ctx;
-  try {
-    let res = await axios.post("http://localhost:4000/api/animals", {
+export const addAnimal =
+  ({ ctx }) =>
+  async (dispatch) => {
+    const {
       name,
       age,
       profile_pic,
@@ -58,22 +53,38 @@ export const addAnimal = ({ ctx }) => async (dispatch) => {
       breed,
       shelter_id,
       species_id,
-    });
-    dispatch({
-      type: ADD_ANIMAL,
-      payload: res.data,
-    });
-  } catch (e) {
-    dispatch({
-      type: ANIMAL_ERROR,
-      payload: e,
-    });
-  }
-};
+    } = ctx;
+    try {
+      let res = await axios.post(
+        "https://forever-pets-back-end.herokuapp.com/api/animals",
+        {
+          name,
+          age,
+          profile_pic,
+          animal_bio,
+          breed,
+          shelter_id,
+          species_id,
+        }
+      );
+      dispatch({
+        type: ADD_ANIMAL,
+        payload: res.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: ANIMAL_ERROR,
+        payload: e,
+      });
+    }
+  };
 
 export const markAdopted = (id) => async (dispatch) => {
   try {
-      let res = await axios.put(`http://localhost:4000/api/animals/${id}`, {is_adopted: true});
+    let res = await axios.put(
+      `https://forever-pets-back-end.herokuapp.com/api/animals/${id}`,
+      { is_adopted: true }
+    );
     dispatch({
       type: MARK_ANIMAL_ADOPTED,
       payload: res.data,
@@ -86,17 +97,22 @@ export const markAdopted = (id) => async (dispatch) => {
   }
 };
 
-export const editAnimal = (id, { ctx}) => async (dispatch) => {
-  try {
-    let res = await axios.put(`http://localhost:4000/api/animals/${id}`, {ctx});
-    dispatch({
-      type: EDIT_ANIMAL,
-      payload: res.data,
-    });
-  } catch (e) {
-    dispatch({
-      type: ANIMAL_ERROR,
-      payload: e,
-    });
-  }
-};
+export const editAnimal =
+  (id, { ctx }) =>
+  async (dispatch) => {
+    try {
+      let res = await axios.put(
+        `https://forever-pets-back-end.herokuapp.com/api/animals/${id}`,
+        { ctx }
+      );
+      dispatch({
+        type: EDIT_ANIMAL,
+        payload: res.data,
+      });
+    } catch (e) {
+      dispatch({
+        type: ANIMAL_ERROR,
+        payload: e,
+      });
+    }
+  };

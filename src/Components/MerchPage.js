@@ -8,7 +8,9 @@ function MerchPage() {
 
   const createCheckoutSession = async () => {
     await axios
-      .post("http://localhost:4000/api/stripe", { cartArray: cart })
+      .post("https://forever-pets-back-end.herokuapp.com/api/stripe", {
+        cartArray: cart,
+      })
       .then(function (response) {
         return (window.location.href = response.data.url);
       });
@@ -41,14 +43,14 @@ function MerchPage() {
     product.quantity += 1;
     setCart([...cart, product]);
   }
-  
+
   function addProductToCart(priceId) {
     if (itemIsInCart(priceId)) {
       updateProductQuantity(priceId);
     } else {
       addToCart(priceId);
     }
-      setCartCounterTotal(cartCounterTotal + 1);
+    setCartCounterTotal(cartCounterTotal + 1);
   }
 
   return (

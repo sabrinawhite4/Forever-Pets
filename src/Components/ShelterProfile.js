@@ -24,7 +24,7 @@ function ShelterProfile() {
   const shelterAnimals = useSelector((state) => state.shelter.animals);
 
   useEffect(() => {
-    console.log(user.shelter_id)
+    console.log(user.shelter_id);
     dispatch(requestShelterData("61184ee7db91a6f130470e1a"));
     dispatch(requestShelterAnimals("61184ee7db91a6f130470e1a"));
   }, [dispatch, user]);
@@ -51,7 +51,10 @@ function ShelterProfile() {
       donation_link: donationLink,
       schedule_link: scheduleLink,
     };
-    axios.put(`http://localhost:4000/api/shelters/${shelter._id}`, shelterData);
+    axios.put(
+      `https://forever-pets-back-end.herokuapp.com/api/shelters/${shelter._id}`,
+      shelterData
+    );
     setEditing(!editing);
     dispatch(requestShelterData(user.shelter_id));
   }

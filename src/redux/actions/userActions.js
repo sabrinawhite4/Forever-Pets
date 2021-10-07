@@ -1,9 +1,15 @@
-import { REQUEST_USER_DATA, USER_ERROR, REQUEST_USER_FAVORITES } from "../types";
+import {
+  REQUEST_USER_DATA,
+  USER_ERROR,
+  REQUEST_USER_FAVORITES,
+} from "../types";
 import axios from "axios";
 
 export const requestUserData = (username) => async (dispatch) => {
   try {
-    let res = await axios.get(`http://localhost:4000/api/users/${username}`);
+    let res = await axios.get(
+      `https://forever-pets-back-end.herokuapp.com/api/users/${username}`
+    );
     dispatch({
       type: REQUEST_USER_DATA,
       payload: res.data,
@@ -18,7 +24,9 @@ export const requestUserData = (username) => async (dispatch) => {
 
 export const requestUserFavorites = (userId) => async (dispatch) => {
   try {
-    let res = await axios.get(`http://localhost:4000/api/favorites/user/${userId}`);
+    let res = await axios.get(
+      `https://forever-pets-back-end.herokuapp.com/api/favorites/user/${userId}`
+    );
     console.log(res.data);
     dispatch({
       type: REQUEST_USER_FAVORITES,

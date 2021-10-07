@@ -10,15 +10,17 @@ export default function DisplayUserFavorites(props) {
 
   async function getFavorites(user) {
     const res = await axios
-      .get(`http://localhost:4000/api/favorites/user/${user._id}`)
+      .get(
+        `https://forever-pets-back-end.herokuapp.com/api/favorites/user/${user._id}`
+      )
       .then((res) => {
-        return res.data
+        return res.data;
       });
     setFavorites(res.animalsArray);
   }
 
   useEffect(() => {
-    console.log(user)
+    console.log(user);
     getFavorites(user);
   }, [user]);
 
@@ -31,7 +33,7 @@ export default function DisplayUserFavorites(props) {
       {favorites
         ? favorites.map((favorite, i) => {
             return (
-              <div className="animal-card"key={i}>
+              <div className="animal-card" key={i}>
                 <h1>{favorite.name}</h1>
                 <img src={favorite.profile_pic} alt={favorite.name} />
               </div>

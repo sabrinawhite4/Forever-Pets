@@ -18,7 +18,10 @@ function AnimalDisplay(props) {
       species: species,
       animal_bio: animalBio,
     };
-    axios.put(`http://localhost:4000/api/animals/${animal._id}`, animalData);
+    axios.put(
+      `https://forever-pets-back-end.herokuapp.com/api/animals/${animal._id}`,
+      animalData
+    );
     setEditing(!editing);
     getAnimals();
   }
@@ -27,7 +30,10 @@ function AnimalDisplay(props) {
     const animalData = {
       is_adopted: true,
     };
-    axios.put(`http://localhost:4000/api/animals/${animal._id}`, animalData);
+    axios.put(
+      `https://forever-pets-back-end.herokuapp.com/api/animals/${animal._id}`,
+      animalData
+    );
     getAnimals();
   }
 
@@ -45,7 +51,11 @@ function AnimalDisplay(props) {
               Mark Adopted
             </button>
           )}
-          <img className="shelter-animal-pic" src={animal.profile_pic} alt={animal.name} />
+          <img
+            className="shelter-animal-pic"
+            src={animal.profile_pic}
+            alt={animal.name}
+          />
           <p>
             {animal.species}, {animal.breed}
           </p>

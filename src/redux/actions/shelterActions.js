@@ -1,9 +1,15 @@
-import { REQUEST_SHELTER_DATA, SHELTER_ERROR, REQUEST_SHELTER_ANIMALS } from "../types";
+import {
+  REQUEST_SHELTER_DATA,
+  SHELTER_ERROR,
+  REQUEST_SHELTER_ANIMALS,
+} from "../types";
 import axios from "axios";
 
 export const requestShelterData = (id) => async (dispatch) => {
   try {
-    let res = await axios.get(`http://localhost:4000/api/shelters/${id}`);
+    let res = await axios.get(
+      `https://forever-pets-back-end.herokuapp.com/api/shelters/${id}`
+    );
     dispatch({
       type: REQUEST_SHELTER_DATA,
       payload: res.data,
@@ -18,7 +24,9 @@ export const requestShelterData = (id) => async (dispatch) => {
 
 export const requestShelterAnimals = (id) => async (dispatch) => {
   try {
-    let res = await axios.get(`http://localhost:4000/api/shelters/${id}/animals`);
+    let res = await axios.get(
+      `https://forever-pets-back-end.herokuapp.com/api/shelters/${id}/animals`
+    );
     dispatch({
       type: REQUEST_SHELTER_ANIMALS,
       payload: res.data,

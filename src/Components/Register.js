@@ -15,16 +15,19 @@ function Register() {
   const [phone, setPhone] = useState("");
 
   function handleRegister() {
-    axios.post("http://localhost:4000/api/auth/register", {
-      email: email,
-      username: username,
-      password: password,
-      first_name: firstName,
-      last_name: lastName,
-      age: age,
-      phone_number: phone
-    });
-    return window.location.href = "/login";
+    axios.post(
+      "https://forever-pets-back-end.herokuapp.com/api/auth/register",
+      {
+        email: email,
+        username: username,
+        password: password,
+        first_name: firstName,
+        last_name: lastName,
+        age: age,
+        phone_number: phone,
+      }
+    );
+    return (window.location.href = "/login");
   }
 
   function goToStepTwo() {
@@ -46,7 +49,7 @@ function Register() {
   return (
     <Background>
       {isOnStepOne ? (
-        <div className= "register-form">
+        <div className="register-form">
           <h3> Create An Account</h3>
           <div className="form-group">
             <label>Email:</label>
@@ -88,26 +91,22 @@ function Register() {
               value={passwordConfirm}
             />
           </div>
-          <button
-            onClick={goToStepTwo}
-            className="login-btn"
-            type="submit"
-          >
+          <button onClick={goToStepTwo} className="login-btn" type="submit">
             Continue
           </button>
         </div>
       ) : (
-          <Welcome
-            handleRegister = {handleRegister}
-            firstName={firstName}
-            lastName = { lastName }
-            age = { age }
-            phone = { phone }
-            setFirstName = { setFirstName }
-            setLastName = { setLastName }
-            setAge = { setAge }
-            setPhone = { setPhone }
-          />
+        <Welcome
+          handleRegister={handleRegister}
+          firstName={firstName}
+          lastName={lastName}
+          age={age}
+          phone={phone}
+          setFirstName={setFirstName}
+          setLastName={setLastName}
+          setAge={setAge}
+          setPhone={setPhone}
+        />
       )}
     </Background>
   );

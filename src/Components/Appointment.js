@@ -12,19 +12,23 @@ function Appointment() {
   function submit() {
     const params = QueryString.parse(location.search);
     console.log(params);
-    axios.post('http://localhost:4000/api/appointment', {
-      date: date,
-      shelter_id: params.shelter_id,
-      animal_id: params.animal_id,
-      user_id: params.user_id
-    }).then(res => {
-      if (res.status === 200) {
-        console.log(res.data);
-        history.push(`/appointment-confirmation?shelter_id=${params.shelter_id}&appointment_id=${res.data._id}`);
-      } else {
-        alert("Error");
-      }
-    });
+    axios
+      .post("https://forever-pets-back-end.herokuapp.com/api/appointment", {
+        date: date,
+        shelter_id: params.shelter_id,
+        animal_id: params.animal_id,
+        user_id: params.user_id,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(res.data);
+          history.push(
+            `/appointment-confirmation?shelter_id=${params.shelter_id}&appointment_id=${res.data._id}`
+          );
+        } else {
+          alert("Error");
+        }
+      });
   }
 
   return (
@@ -37,7 +41,9 @@ function Appointment() {
         showTimeSelect
         inline="true"
       />
-      <button className="login-btn" onClick={submit}>Submit</button>
+      <button className="login-btn" onClick={submit}>
+        Submit
+      </button>
     </div>
   );
 }

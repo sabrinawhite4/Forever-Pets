@@ -26,7 +26,10 @@ function ShelterAnimalsDisplay(props) {
       profile_pic: animalPic,
       shelter_id: shelterId,
     };
-    axios.post(`http://localhost:4000/api/animals`, animalData);
+    axios.post(
+      `https://forever-pets-back-end.herokuapp.com/api/animals`,
+      animalData
+    );
     setAddNewAnimal(!addNewAnimal);
     getAnimals();
   }
@@ -94,7 +97,9 @@ function ShelterAnimalsDisplay(props) {
           >
             Cancel Add Animal
           </button>
-          <button id="naah-button" onClick={saveAnimal}>Save Animal</button>
+          <button id="naah-button" onClick={saveAnimal}>
+            Save Animal
+          </button>
         </div>
       )}
       <div className="shelter-animal-wrapper">{animalList}</div>

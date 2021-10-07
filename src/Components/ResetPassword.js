@@ -12,14 +12,17 @@ function ResetPassword() {
   function handleSubmit() {
     if (password === confirmPassword) {
       axios
-        .put(`http://localhost:4000/api/auth/reset-password/${params.user}`, {
-          password,
-        })
+        .put(
+          `https://forever-pets-back-end.herokuapp.com/api/auth/reset-password/${params.user}`,
+          {
+            password,
+          }
+        )
         .then((res) => {
           console.log(res);
           if (res.status === 200) {
-            alert("Password changed successfully")
-              history.push("/login");
+            alert("Password changed successfully");
+            history.push("/login");
           }
         })
         .catch((err) => {

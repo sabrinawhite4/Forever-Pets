@@ -18,7 +18,6 @@ function UserProfile() {
     setAboutMe(user.profile_bio);
     setLocation(user.location);
     setIdealPet(user.ideal_pet);
-
   }, [user]);
 
   function saveInfo() {
@@ -27,7 +26,10 @@ function UserProfile() {
       location: location,
       ideal_pet: idealPet,
     };
-    axios.put(`http://localhost:4000/api/users/${user._id}`, userData);
+    axios.put(
+      `https://forever-pets-back-end.herokuapp.com/api/users/${user._id}`,
+      userData
+    );
     setEditing(!editing);
     dispatch(requestUserData(user.username));
     setAboutMe(user.profile_bio);
@@ -42,9 +44,13 @@ function UserProfile() {
       ) : (
         <div className="user-profile">
           {!editing ? (
-            <button className="login-btn" onClick={() => setEditing(!editing)}>Edit Profile</button>
+            <button className="login-btn" onClick={() => setEditing(!editing)}>
+              Edit Profile
+            </button>
           ) : (
-            <button className="login-btn" onClick={saveInfo}>Save Changes</button>
+            <button className="login-btn" onClick={saveInfo}>
+              Save Changes
+            </button>
           )}
           <div>
             <div className="profile-group">
@@ -101,7 +107,7 @@ function UserProfile() {
               <h2> My Favorites: </h2>
               <p>{user.user_favorites}</p>
             </div>
-              {user ? <DisplayUserFavorites user={user} /> : null}
+            {user ? <DisplayUserFavorites user={user} /> : null}
           </div>
         </div>
       )}
