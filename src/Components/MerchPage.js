@@ -8,7 +8,7 @@ function MerchPage() {
 
   const createCheckoutSession = async () => {
     await axios
-      .post("https://forever-pets-back-end.herokuapp.com/api/stripe", {
+      .post(`${process.env.REACT_APP_API_URL}stripe`, {
         cartArray: cart,
       })
       .then(function (response) {
@@ -55,6 +55,9 @@ function MerchPage() {
 
   return (
     <div className="merch-page">
+      <div>
+        <h4>*This store is for demo purposes and you will not receive any items you purchase*</h4>
+      </div>
       <div className="merch-page__content">
         <h1>Puppy Plushie</h1>
         <img

@@ -18,10 +18,7 @@ function AnimalDisplay(props) {
       species: species,
       animal_bio: animalBio,
     };
-    axios.put(
-      `https://forever-pets-back-end.herokuapp.com/api/animals/${animal._id}`,
-      animalData
-    );
+    axios.put(`${process.env.REACT_APP_API_URL}animals/${animal._id}`, animalData);
     setEditing(!editing);
     getAnimals();
   }
@@ -31,7 +28,7 @@ function AnimalDisplay(props) {
       is_adopted: true,
     };
     axios.put(
-      `https://forever-pets-back-end.herokuapp.com/api/animals/${animal._id}`,
+      `${process.env.REACT_APP_API_URL}animals/${animal._id}`,
       animalData
     );
     getAnimals();

@@ -8,7 +8,7 @@ import axios from "axios";
 export const requestShelterData = (id) => async (dispatch) => {
   try {
     let res = await axios.get(
-      `https://forever-pets-back-end.herokuapp.com/api/shelters/${id}`
+      `${process.env.REACT_APP_API_URL}shelters/${id}`
     );
     dispatch({
       type: REQUEST_SHELTER_DATA,
@@ -25,7 +25,7 @@ export const requestShelterData = (id) => async (dispatch) => {
 export const requestShelterAnimals = (id) => async (dispatch) => {
   try {
     let res = await axios.get(
-      `https://forever-pets-back-end.herokuapp.com/api/shelters/${id}/animals`
+      `${process.env.REACT_APP_API_URL}shelters/${id}/animals`
     );
     dispatch({
       type: REQUEST_SHELTER_ANIMALS,

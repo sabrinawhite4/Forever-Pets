@@ -13,7 +13,7 @@ function ResetPassword() {
     if (password === confirmPassword) {
       axios
         .put(
-          `https://forever-pets-back-end.herokuapp.com/api/auth/reset-password/${params.user}`,
+          `${process.env.REACT_APP_API_URL}auth/reset-password/${params.user}`,
           {
             password,
           }

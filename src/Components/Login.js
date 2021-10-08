@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   requestUserData,
   requestUserFavorites,
@@ -7,6 +7,8 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 
+const { REACT_APP_API_URL } = process.env;
+
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -14,16 +16,17 @@ function Login() {
   let history = useHistory();
 
   async function loginUser(e) {
+
     if (e) e.preventDefault();
     try {
       const res = await axios.post(
-        "https://forever-pets-back-end.herokuapp.com/api/auth/login",
+        `${REACT_APP_API_URL}auth/login`,
         { username, password }
       );
-      console.log(res.data);
+      const accessToken = res.data.accessToken;
       if (res.status === 200) {
-        dispatch(requestUserData(res.data.username));
-        dispatch(requestUserFavorites(res.data._id));
+        await dispatch(requestUserData(username, accessToken));
+        await dispatch(requestUserFavorites(res.data.user._id));
         history.push("/");
       }
     } catch (e) {

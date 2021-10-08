@@ -26,10 +26,7 @@ function ShelterAnimalsDisplay(props) {
       profile_pic: animalPic,
       shelter_id: shelterId,
     };
-    axios.post(
-      `https://forever-pets-back-end.herokuapp.com/api/animals`,
-      animalData
-    );
+    axios.post(`${process.env.REACT_APP_API_URL}animals`, animalData);
     setAddNewAnimal(!addNewAnimal);
     getAnimals();
   }

@@ -11,15 +11,13 @@ function AppointmentConfirmation() {
 
   useEffect(() => {
     axios
-      .get(
-        `https://forever-pets-back-end.herokuapp.com/api/shelters/${params.shelter_id}`
-      )
+      .get(`${process.env.REACT_APP_API_URL}shelters/${params.shelter_id}`)
       .then((res) => {
         setShelter(res.data);
       });
     axios
       .get(
-        `https://forever-pets-back-end.herokuapp.com/api/appointment/${params.appointment_id}`
+        `${process.env.REACT_APP_API_URL}appointment/${params.appointment_id}`
       )
       .then((res) => {
         setAppointment(res.data);

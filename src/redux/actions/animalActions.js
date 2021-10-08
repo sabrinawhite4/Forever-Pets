@@ -10,9 +10,7 @@ import axios from "axios";
 
 export const requestAllAnimals = () => async (dispatch) => {
   try {
-    let res = await axios.get(
-      "https://forever-pets-back-end.herokuapp.com/api/animals/all"
-    );
+    let res = await axios.get(`${process.env.REACT_APP_API_URL}animals/all`);
     dispatch({
       type: REQUEST_ALL_ANIMALS,
       payload: res.data,
@@ -28,7 +26,7 @@ export const requestAllAnimals = () => async (dispatch) => {
 export const requestAvailableAnimals = () => async (dispatch) => {
   try {
     let res = await axios.get(
-      "https://forever-pets-back-end.herokuapp.com/api/animals/available"
+      `${process.env.REACT_APP_API_URL}animals/available`
     );
     dispatch({
       type: REQUEST_AVAILABLE_ANIMALS,
@@ -55,18 +53,15 @@ export const addAnimal =
       species_id,
     } = ctx;
     try {
-      let res = await axios.post(
-        "https://forever-pets-back-end.herokuapp.com/api/animals",
-        {
-          name,
-          age,
-          profile_pic,
-          animal_bio,
-          breed,
-          shelter_id,
-          species_id,
-        }
-      );
+      let res = await axios.post(`${process.env.REACT_APP_API_URL}animals`, {
+        name,
+        age,
+        profile_pic,
+        animal_bio,
+        breed,
+        shelter_id,
+        species_id,
+      });
       dispatch({
         type: ADD_ANIMAL,
         payload: res.data,
@@ -81,10 +76,9 @@ export const addAnimal =
 
 export const markAdopted = (id) => async (dispatch) => {
   try {
-    let res = await axios.put(
-      `https://forever-pets-back-end.herokuapp.com/api/animals/${id}`,
-      { is_adopted: true }
-    );
+    let res = await axios.put(`${process.env.REACT_APP_API_URL}animals/${id}`, {
+      is_adopted: true,
+    });
     dispatch({
       type: MARK_ANIMAL_ADOPTED,
       payload: res.data,
@@ -102,7 +96,7 @@ export const editAnimal =
   async (dispatch) => {
     try {
       let res = await axios.put(
-        `https://forever-pets-back-end.herokuapp.com/api/animals/${id}`,
+        `${process.env.REACT_APP_API_URL}animals/${id}`,
         { ctx }
       );
       dispatch({

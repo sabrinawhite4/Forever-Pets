@@ -5,14 +5,14 @@ import {
 } from "../types";
 import axios from "axios";
 
-export const requestUserData = (username) => async (dispatch) => {
+export const requestUserData = (username, accessToken) => async (dispatch) => {
   try {
     let res = await axios.get(
-      `https://forever-pets-back-end.herokuapp.com/api/users/${username}`
+      `${process.env.REACT_APP_API_URL}users/${username}`
     );
     dispatch({
       type: REQUEST_USER_DATA,
-      payload: res.data,
+      payload: {user: res.data, accessToken},
     });
   } catch (e) {
     dispatch({
@@ -25,7 +25,7 @@ export const requestUserData = (username) => async (dispatch) => {
 export const requestUserFavorites = (userId) => async (dispatch) => {
   try {
     let res = await axios.get(
-      `https://forever-pets-back-end.herokuapp.com/api/favorites/user/${userId}`
+      `${process.env.REACT_APP_API_URL}favorites/user/${userId}`
     );
     console.log(res.data);
     dispatch({

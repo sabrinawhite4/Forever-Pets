@@ -52,7 +52,7 @@ function ShelterProfile() {
       schedule_link: scheduleLink,
     };
     axios.put(
-      `https://forever-pets-back-end.herokuapp.com/api/shelters/${shelter._id}`,
+      `${process.env.REACT_APP_API_URL}shelters/${shelter._id}`,
       shelterData
     );
     setEditing(!editing);

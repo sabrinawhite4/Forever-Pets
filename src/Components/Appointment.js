@@ -13,7 +13,7 @@ function Appointment() {
     const params = QueryString.parse(location.search);
     console.log(params);
     axios
-      .post("https://forever-pets-back-end.herokuapp.com/api/appointment", {
+      .post(`${process.env.REACT_APP_API_URL}appointment`, {
         date: date,
         shelter_id: params.shelter_id,
         animal_id: params.animal_id,

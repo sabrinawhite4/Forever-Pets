@@ -15,18 +15,15 @@ function Register() {
   const [phone, setPhone] = useState("");
 
   function handleRegister() {
-    axios.post(
-      "https://forever-pets-back-end.herokuapp.com/api/auth/register",
-      {
-        email: email,
-        username: username,
-        password: password,
-        first_name: firstName,
-        last_name: lastName,
-        age: age,
-        phone_number: phone,
-      }
-    );
+    axios.post(`${process.env.REACT_APP_API_URL}auth/register`, {
+      email: email,
+      username: username,
+      password: password,
+      first_name: firstName,
+      last_name: lastName,
+      age: age,
+      phone_number: phone,
+    });
     return (window.location.href = "/login");
   }
 

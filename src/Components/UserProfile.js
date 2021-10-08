@@ -26,10 +26,7 @@ function UserProfile() {
       location: location,
       ideal_pet: idealPet,
     };
-    axios.put(
-      `https://forever-pets-back-end.herokuapp.com/api/users/${user._id}`,
-      userData
-    );
+    axios.put(`${process.env.REACT_APP_API_URL}users/${user._id}`, userData);
     setEditing(!editing);
     dispatch(requestUserData(user.username));
     setAboutMe(user.profile_bio);

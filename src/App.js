@@ -4,6 +4,7 @@ import Footer from "./Components/Footer";
 import "./App.css";
 import routes from "./routes";
 import { useLocation } from "react-router-dom";
+require("dotenv").config();
 
 function App() {
   const location = useLocation();

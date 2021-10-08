@@ -10,9 +10,7 @@ export default function DisplayUserFavorites(props) {
 
   async function getFavorites(user) {
     const res = await axios
-      .get(
-        `https://forever-pets-back-end.herokuapp.com/api/favorites/user/${user._id}`
-      )
+      .get(`${process.env.REACT_APP_API_URL}favorites/user/${user._id}`)
       .then((res) => {
         return res.data;
       });

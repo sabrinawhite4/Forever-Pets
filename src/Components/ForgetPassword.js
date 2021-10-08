@@ -7,7 +7,7 @@ function ForgetPassword() {
   const history = useHistory();
   function handleSubmit() {
     axios
-      .post("https://forever-pets-back-end.herokuapp.com/api/forgot-password", {
+      .post(`${process.env.REACT_APP_API_URL}forgot-password`, {
         email,
       })
       .then((res) => {

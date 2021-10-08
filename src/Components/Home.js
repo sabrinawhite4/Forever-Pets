@@ -9,19 +9,13 @@ export default function Home() {
   const user = useSelector((state) => state.user);
   const animals = useSelector((state) => state.animals.availableAnimals);
   const dispatch = useDispatch();
-  const [redirectToLogin, setRedirectToLogin] = useState(false);
   const [currentAnimal, setCurrentAnimal] = useState(null);
   const [animalIndex, setAnimalIndex] = useState(0);
 
   useEffect(() => {
     dispatch(requestAvailableAnimals());
+    
   }, [dispatch]);
-
-  useEffect(() => {
-    if (!user._id) {
-      setRedirectToLogin(true);
-    }
-  }, [user]);
 
   useEffect(() => {
     setCurrentAnimal(animals[animalIndex]);
@@ -42,7 +36,7 @@ export default function Home() {
 
   function handleHeart() {
     axios
-      .put("https://forever-pets-back-end.herokuapp.com/api/favorites", {
+      .put(`${process.env.REACT_APP_API_URL}favorites`, {
         animalObjId: currentAnimal._id,
         userId: user.user._id,
       })
@@ -59,22 +53,23 @@ export default function Home() {
     goToNext();
   }
 
-  if (redirectToLogin) {
+  if (user.accessToken === null) {
     return <Redirect to="/login" />;
-  }
 
-  return (
-    <div className="App">
-      <body className="App-body">
-        <AnimalCard
-          animal={currentAnimal}
-          goToNextFn={goToNext}
-          animalArray={animals}
-          animalIndex={animalIndex}
-          goToPreviousFn={goToPrevious}
-          handleHeartFn={handleHeart}
-        />
-      </body>
-    </div>
-  );
+  } else {
+    return (
+      <div className="App">
+        <body className="App-body">
+          <AnimalCard
+            animal={currentAnimal}
+            goToNextFn={goToNext}
+            animalArray={animals}
+            animalIndex={animalIndex}
+            goToPreviousFn={goToPrevious}
+            handleHeartFn={handleHeart}
+          />
+        </body>
+      </div>
+    );
+  }
 }

@@ -7,7 +7,7 @@ function Logout() {
   let history = useHistory();
 
   function handleLogout() {
-    axios.post("https://forever-pets-back-end.herokuapp.com/api/auth/logout");
+    axios.post(`${process.env.REACT_APP_API_URL}auth/logout`);
     history.push("/logout-confirmation");
   }
   function handleNevermind() {

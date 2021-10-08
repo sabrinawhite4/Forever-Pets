@@ -16,7 +16,8 @@ let initialState = {
     user_favorites: [],
   },
   userFavorites: [],
-  loading: true
+  loading: true,
+  accessToken: null
 };
 
 export default function reducer(state = initialState, action) {
@@ -24,8 +25,9 @@ export default function reducer(state = initialState, action) {
     case REQUEST_USER_DATA:
       return {
         ...state,
-        user: action.payload,
+        user: action.payload.user,
         loading: false,
+        accessToken: action.payload.accessToken
       };
     case REQUEST_USER_FAVORITES:
       return {
